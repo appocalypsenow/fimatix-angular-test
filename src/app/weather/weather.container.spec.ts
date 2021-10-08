@@ -6,14 +6,12 @@ describe('WeatherContainer', () => {
   let component: WeatherContainer;
   let fixture: ComponentFixture<WeatherContainer>;
 
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [WeatherContainer],
       imports: [],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
-      .compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

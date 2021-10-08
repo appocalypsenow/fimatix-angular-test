@@ -9,29 +9,26 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
-// import { StoreModule } from '@ngrx/store';
-// import { reducers } from './store/reducers/weather';
-// import { GetWeatherEffect } from './store/effects/weather';
-// import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { weatherReducer } from './store/reducers/weather';
+import { GetWeatherEffect } from './store/effects/weather';
+import { EffectsModule } from '@ngrx/effects';
+import { WeatherAtHourPipe } from './pipes/weather-at-hour.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    // StoreModule.forRoot({ weather: reducers }),
-    // EffectsModule.forRoot([GetWeatherEffect]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    StoreRouterConnectingModule.forRoot(),
-    ReactiveFormsModule
+    StoreModule.forFeature('weather', weatherReducer),
+    EffectsModule.forFeature([GetWeatherEffect]),
+    ReactiveFormsModule,
   ],
   declarations: [
     SearchComponent,
     ResultsComponent,
-    WeatherContainer
+    WeatherContainer,
+    WeatherAtHourPipe,
   ],
-  providers: [
-    WeatherService
-  ]
+  providers: [WeatherService],
 })
-export class WeatherModule {
-}
+export class WeatherModule {}

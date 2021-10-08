@@ -103,9 +103,22 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "weather"
+  "defaultProject": "weather",
+  "cli": {
+    "analytics": "69c4c225-c8e6-4617-adb6-e2a5945f413a",
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

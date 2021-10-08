@@ -7,8 +7,9 @@ const appRoutes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: WeatherContainer
-  }
+    component: WeatherContainer,
+  },
 ];
 // export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(appRoutes);
-export const AppRoutingModule: ModuleWithProviders<RouterModule> = RouterModule.forRoot(appRoutes );
+export const AppRoutingModule: ModuleWithProviders<RouterModule> =
+  RouterModule.forRoot(appRoutes);

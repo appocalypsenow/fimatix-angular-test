@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Weather } from '../model/weather';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class WeatherService {
@@ -8,12 +10,19 @@ export class WeatherService {
     q: '',
     cnt: '8',
     units: 'metric',
-    APPID: '010721642521f31b0fbc8c3831d45951'
+    APPID: '010721642521f31b0fbc8c3831d45951',
+  };
+  options: {
+    responseType: 'json';
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  searchWeatherForCity(city) {
-    // implement the service
+  searchWeatherForCity(city: string): Observable<Weather> {
+    let params = new HttpParams({ fromObject: { ...this.params, q: city } });
+    return this.http.get<Weather>(this.url, {
+      params,
+      ...this.options,
+    });
   }
 }
