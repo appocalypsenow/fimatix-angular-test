@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { WeatherService } from '../../weather.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as WeatherActions from '../actions/weather';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 
 @Injectable()
-export class GetWeatherEffect {
+export class GetWeatherEffects {
   constructor(
     private weatherService: WeatherService,
     private actions$: Actions

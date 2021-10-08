@@ -1,79 +1,5 @@
-export interface City {
-  id: number;
-  name: string;
-  population?: number;
-  coord?: Coordinates;
-  country?: string;
-  timezone?: number;
-  sunrise?: number;
-  sunset?: number;
-}
-
-export interface Coordinates {
-  lon: number;
-  lat: number;
-}
-
-export interface Forecast {
-  temp: number;
-  temp_min: number;
-  temp_max: number;
-  pressure: number;
-  feels_like?: number;
-  sea_level: number;
-  grnd_level: number;
-  humidity: number;
-  temp_kf: number;
-}
-
-export interface WeatherDescription {
-  id: number;
-  main: string;
-  description: string;
-  icon: string;
-}
-
-export interface Clouds {
-  all: number;
-}
-
-export interface Wind {
-  speed: number;
-  deg: number;
-  gust?: number;
-}
-
-export interface WeatherSys {
-  pod: string;
-}
-
-export interface WeatherList {
-  dt: number;
-  main: Forecast;
-  weather: WeatherDescription[];
-  clouds: Clouds;
-  wind: Wind;
-  sys: WeatherSys;
-  dt_txt: string;
-  visibility?: number;
-  pop?: number;
-  rain?: { '3h': number };
-}
-
-export interface Weather {
-  city?: City;
-  cod?: string;
-  message?: number;
-  cnt?: number;
-  list?: WeatherList[];
-}
-
-export interface Summary {
-  city: string;
-}
-
-export function generateMockWeather(): Weather {
-  return {
+export const mockBristol = [
+  {
     cod: '200',
     message: 0,
     cnt: 8,
@@ -92,7 +18,12 @@ export function generateMockWeather(): Weather {
           temp_kf: -1.09,
         },
         weather: [
-          { id: 800, main: 'Clear', description: 'clear sky', icon: '01d' },
+          {
+            id: 800,
+            main: 'Clear',
+            description: 'clear sky',
+            icon: '01d',
+          },
         ],
         clouds: { all: 6 },
         wind: { speed: 1.53, deg: 343, gust: 3.29 },
@@ -115,7 +46,12 @@ export function generateMockWeather(): Weather {
           temp_kf: -2.65,
         },
         weather: [
-          { id: 800, main: 'Clear', description: 'clear sky', icon: '01d' },
+          {
+            id: 800,
+            main: 'Clear',
+            description: 'clear sky',
+            icon: '01d',
+          },
         ],
         clouds: { all: 3 },
         wind: { speed: 2.54, deg: 27, gust: 3.61 },
@@ -138,7 +74,12 @@ export function generateMockWeather(): Weather {
           temp_kf: 0,
         },
         weather: [
-          { id: 800, main: 'Clear', description: 'clear sky', icon: '01d' },
+          {
+            id: 800,
+            main: 'Clear',
+            description: 'clear sky',
+            icon: '01d',
+          },
         ],
         clouds: { all: 1 },
         wind: { speed: 3.57, deg: 57, gust: 4.19 },
@@ -161,7 +102,12 @@ export function generateMockWeather(): Weather {
           temp_kf: 0,
         },
         weather: [
-          { id: 800, main: 'Clear', description: 'clear sky', icon: '01d' },
+          {
+            id: 800,
+            main: 'Clear',
+            description: 'clear sky',
+            icon: '01d',
+          },
         ],
         clouds: { all: 4 },
         wind: { speed: 3.98, deg: 58, gust: 6.27 },
@@ -268,7 +214,12 @@ export function generateMockWeather(): Weather {
           temp_kf: 0,
         },
         weather: [
-          { id: 500, main: 'Rain', description: 'light rain', icon: '10n' },
+          {
+            id: 500,
+            main: 'Rain',
+            description: 'light rain',
+            icon: '10n',
+          },
         ],
         clouds: { all: 100 },
         wind: { speed: 3.23, deg: 67, gust: 7.77 },
@@ -289,5 +240,5 @@ export function generateMockWeather(): Weather {
       sunrise: 1633690152,
       sunset: 1633731286,
     },
-  };
-}
+  },
+];
